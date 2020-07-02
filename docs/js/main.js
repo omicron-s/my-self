@@ -108,3 +108,10 @@ $(document).ready(function () {
     $('#comments .owl-carousel').trigger('next.owl.carousel');
   });
 });
+
+$(document).ready(function () {
+  $('#staff .staff__btn').on('click', function () {
+    $('#staff .staff__btn').removeClass('active');
+    $(this).addClass('active');
+  });
+});
