@@ -109,9 +109,26 @@ $(document).ready(function () {
   });
 });
 
+//Staff-radio-btn
 $(document).ready(function () {
   $('#staff .staff__btn').on('click', function () {
     $('#staff .staff__btn').removeClass('active');
     $(this).addClass('active');
+  });
+});
+
+//ScrollUp
+$(document).ready(function () {
+  var btn = $('#footer .footer__scrollUp');
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 800) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+  btn.on('click', function (e) {
+    e.preventDefault();
+    $('html, body').scrollTop(0);
   });
 });
