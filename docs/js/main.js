@@ -34,25 +34,25 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('.staff__slider').owlCarousel({
     loop: true,
-    items: 3,
     dots: false,
     nav: false,
     autoplay: true,
     autoplayTimeout: 10000,
     autoplaySpeed: 3000,
     autoplayHoverPause: true,
-    margin: 30,
-    // responsive: {
-    //   450: {
-    //     items: 2
-    //   },
-    //   768: {
-    //     items: 3
-    //   },
-    //   1200: {
-    //     items: 4
-    //   }
-    // }
+    responsive: {
+      0: {
+        items: 1,
+        margin: 0,
+      },
+      768: {
+        items: 1,
+      },
+      1200: {
+        items: 3,
+        margin: 30,
+      },
+    },
   });
   $('#staff .slider-btn-round[data="prev"]').click(function () {
     $('#staff .owl-carousel').trigger('prev.owl.carousel');
@@ -66,25 +66,25 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('.about__slider').owlCarousel({
     loop: true,
-    items: 4,
     dots: false,
     nav: false,
     autoplay: true,
     autoplayTimeout: 10000,
     autoplaySpeed: 3000,
     autoplayHoverPause: true,
-    margin: 30,
-    // responsive: {
-    //   450: {
-    //     items: 2
-    //   },
-    //   768: {
-    //     items: 3
-    //   },
-    //   1200: {
-    //     items: 4
-    //   }
-    // }
+    responsive: {
+      0: {
+        items: 1,
+        margin: 0,
+      },
+      768: {
+        items: 1,
+      },
+      1200: {
+        items: 4,
+        margin: 30,
+      },
+    },
   });
   $('#certSlider .slider-btn-round[data="prev"]').click(function () {
     $('#certSlider>.owl-carousel').trigger('prev.owl.carousel');
@@ -144,5 +144,16 @@ $(document).ready(function () {
   btn.on('click', function (e) {
     e.preventDefault();
     $('html, body').scrollTop(0);
+  });
+});
+
+$(document).ready(function () {
+  $('#header .header__menu').on('click', function () {
+    $(this).toggleClass('active');
+    if ($(this).hasClass('active')) {
+      $('#header .header__tabs').addClass('active');
+    } else {
+      $('#header .header__tabs').removeClass('active');
+    }
   });
 });
