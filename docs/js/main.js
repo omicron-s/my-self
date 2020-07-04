@@ -45,10 +45,19 @@ $(document).ready(function () {
         items: 1,
         margin: 0,
       },
+      630: {
+        items: 1,
+        margin: 10,
+      },
       768: {
         items: 1,
+        margin: 30,
       },
-      1200: {
+      1024: {
+        items: 2,
+        margin: 30,
+      },
+      1440: {
         items: 3,
         margin: 30,
       },
@@ -77,10 +86,19 @@ $(document).ready(function () {
         items: 1,
         margin: 0,
       },
-      768: {
-        items: 1,
+      550: {
+        items: 2,
+        margin: 10,
       },
-      1200: {
+      768: {
+        items: 2,
+        margin: 30,
+      },
+      1024: {
+        items: 3,
+        margin: 30,
+      },
+      1440: {
         items: 4,
         margin: 30,
       },
@@ -122,7 +140,11 @@ $(document).ready(function () {
   var btn = $('#footer .footer__scrollUp');
   $(window).scroll(function () {
     var scroll = $(window).scrollTop() + $(window).height();
-    var footerOffset = $('#footer').offset().top + $('#footer').height() - 70;
+    var footerOffset = $('#footer').offset().top + $('#footer').height();
+
+    if ($(window).width() >= 1440) {
+      footerOffset = footerOffset - 70;
+    }
 
     if ($(window).scrollTop() > 800) {
       btn.addClass('show');
