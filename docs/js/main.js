@@ -32,7 +32,7 @@ $(document).ready(function () {
 
 //staff-slider
 $(document).ready(function () {
-  $('.staff__slider').owlCarousel({
+  $('#staff .staff__slider').owlCarousel({
     loop: true,
     dots: false,
     nav: false,
@@ -63,11 +63,47 @@ $(document).ready(function () {
       },
     },
   });
+
   $('#staff .slider-btn-round[data="prev"]').click(function () {
     $('#staff .owl-carousel').trigger('prev.owl.carousel');
   });
+
   $('#staff .slider-btn-round[data="next"]').click(function () {
     $('#staff .owl-carousel').trigger('next.owl.carousel');
+  });
+});
+
+//Staff-btn
+$(document).ready(function () {
+  var $staffTypeAll = $('#staff .staff__card');
+  var $staffTypeFamily = $('#staff .staff__card.sort-family');
+  var $staffTypeKid = $('#staff .staff__card.sort-kid');
+  var $staffTypeAnalyst = $('#staff .staff__card.sort-analyst');
+  var $owl = $('#staff .staff__slider');
+
+  $('#staffTypeAll').on('click', function () {
+    $staffTypeFamily.remove();
+    $staffTypeKid.remove();
+    $staffTypeAnalyst.remove();
+    $staffTypeAll.appendTo('#staff .staff__slider');
+  });
+
+  $('#staffTypeFamily').on('click', function () {
+    $staffTypeKid.remove();
+    $staffTypeAnalyst.remove();
+    $staffTypeFamily.appendTo('#staff .staff__slider');
+  });
+
+  $('#staffTypeKid').on('click', function () {
+    $staffTypeFamily.remove();
+    $staffTypeAnalyst.remove();
+    $staffTypeKid.appendTo('#staff .staff__slider');
+  });
+
+  $('#staffTypeAnalyst').on('click', function () {
+    $staffTypeFamily.remove();
+    $staffTypeKid.remove();
+    $staffTypeAnalyst.appendTo('#staff .staff__slider');
   });
 });
 
@@ -169,13 +205,23 @@ $(document).ready(function () {
   });
 });
 
+//Mobile-menu
 $(document).ready(function () {
   $('#header .header__menu').on('click', function () {
     $(this).toggleClass('active');
     if ($(this).hasClass('active')) {
       $('#header .header__tabs').addClass('active');
+      $('body').addClass('active');
     } else {
       $('#header .header__tabs').removeClass('active');
+      $('body').removeClass('active');
     }
+  });
+
+  // autoclose when resizing
+  $(window).resize(function () {
+    $('#header .header__menu').removeClass('active');
+    $('#header .header__tabs').removeClass('active');
+    $('body').removeClass('active');
   });
 });
