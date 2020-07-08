@@ -73,40 +73,6 @@ $(document).ready(function () {
   });
 });
 
-//Staff-btn
-$(document).ready(function () {
-  var $staffTypeAll = $('#staff .staff__card');
-  var $staffTypeFamily = $('#staff .staff__card.sort-family');
-  var $staffTypeKid = $('#staff .staff__card.sort-kid');
-  var $staffTypeAnalyst = $('#staff .staff__card.sort-analyst');
-  var $owl = $('#staff .staff__slider');
-
-  $('#staffTypeAll').on('click', function () {
-    $staffTypeFamily.remove();
-    $staffTypeKid.remove();
-    $staffTypeAnalyst.remove();
-    $staffTypeAll.appendTo('#staff .staff__slider');
-  });
-
-  $('#staffTypeFamily').on('click', function () {
-    $staffTypeKid.remove();
-    $staffTypeAnalyst.remove();
-    $staffTypeFamily.appendTo('#staff .staff__slider');
-  });
-
-  $('#staffTypeKid').on('click', function () {
-    $staffTypeFamily.remove();
-    $staffTypeAnalyst.remove();
-    $staffTypeKid.appendTo('#staff .staff__slider');
-  });
-
-  $('#staffTypeAnalyst').on('click', function () {
-    $staffTypeFamily.remove();
-    $staffTypeKid.remove();
-    $staffTypeAnalyst.appendTo('#staff .staff__slider');
-  });
-});
-
 //Certificates-slider
 $(document).ready(function () {
   $('.about__slider').owlCarousel({
@@ -211,17 +177,33 @@ $(document).ready(function () {
     $(this).toggleClass('active');
     if ($(this).hasClass('active')) {
       $('#header .header__tabs').addClass('active');
-      $('body').addClass('active');
     } else {
       $('#header .header__tabs').removeClass('active');
-      $('body').removeClass('active');
     }
   });
+});
 
-  // autoclose when resizing
-  $(window).resize(function () {
-    $('#header .header__menu').removeClass('active');
-    $('#header .header__tabs').removeClass('active');
-    $('body').removeClass('active');
+//path-menu
+$(function () {
+  $('#price a.price__link').on('click', function (e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+    if ($(this).hasClass('active')) {
+      $('#path').addClass('active');
+    } else {
+      $('#path').removeClass('active');
+    }
   });
 });
+
+// autoclose when resizing
+$(window).resize(function () {
+  $('#header .header__menu').removeClass('active');
+  $('#header .header__tabs').removeClass('active');
+});
+
+//comments-click
+// $(function () {
+//   $('#comments a').click();
+//   $('#specialist-tabs li[data-tab="b"]').click();
+// });
