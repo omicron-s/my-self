@@ -197,9 +197,13 @@ $(function () {
 });
 
 // autoclose when resizing
-$(window).resize(function () {
-  $('#header .header__menu').removeClass('active');
-  $('#header .header__tabs').removeClass('active');
+var width = $(window).width();
+$(window).on('resize', function () {
+  if ($(this).width() !== width) {
+    width = $(this).width();
+    $('#header .header__menu').removeClass('active');
+    $('#header .header__tabs').removeClass('active');
+  }
 });
 
 //comments-click
